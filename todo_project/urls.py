@@ -15,14 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todo.views import ToDoView, AddToDo, DeleteToDo
-from todohist.views import ToDoHistory
+from todo.views import ToDoView, AddToDo, DeleteToDo, ToDoHistView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', ToDoView),
-    path('todohist/', ToDoHistory),
+    path('todohist/', ToDoHistView),
 
     # Retrieves the post from todo.html
     path('addtodo/', AddToDo), # Calls the AddToDo method in views.py
