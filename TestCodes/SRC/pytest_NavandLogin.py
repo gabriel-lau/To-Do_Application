@@ -13,10 +13,6 @@ def NavigateToDoHistory():
     #returns the heading To-Do History
     return browser.find_element_by_xpath("//h1")
 
-def LoginCorrectly():
-
-
-def LoginIncorrectly():
     
 
 
@@ -25,4 +21,5 @@ def LoginIncorrectly():
 browser = webdriver.Chrome()
 NavigateToDoPage()
 NavigateToDoHistory()
+browser.close()
 

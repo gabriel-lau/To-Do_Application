@@ -11,4 +11,5 @@ def DisplayListofArchivedItems():
 
 browser = webdriver.Chrome()
 DisplayListofArchivedItems()
+browser.close()
 
