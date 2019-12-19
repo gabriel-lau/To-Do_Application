@@ -9,9 +9,17 @@ def NavigateToDoPage():
     return browser.find_element_by_xpath("//h1")
 
 def NavigateToDoHistory():
-    browser.get("http://127.0.0.1:8000/todohistory/")
+    browser.get("http://127.0.0.1:8000/todohist/")
     #returns the heading To-Do History
     return browser.find_element_by_xpath("//h1")
+
+def LoginCorrectly():
+
+
+def LoginIncorrectly():
+    
+
+
 
 
 browser = webdriver.Chrome()
