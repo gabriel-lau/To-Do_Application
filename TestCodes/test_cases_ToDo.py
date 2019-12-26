@@ -29,3 +29,13 @@ def test_AddExistingItem():
     for i in text:
         count+=1
     assert count == 2
+
+def test_DeleteItem():
+    browser.find_element_by_xpath("/html/body/ul/li[last()]/form").click()
+    page = browser.page_source
+    count = 0
+    text = re.findall("jd's test item", page)
+    for i in text:
+        count+=1
+    assert count == 1
+    browser.close()
