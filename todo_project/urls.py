@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from django.contrib.auth.models import User
 from todo.views import ToDoView, AddToDo, DeleteToDo, ToDoHistView
 
 
@@ -26,4 +28,17 @@ urlpatterns = [
     # Retrieves the post from todo.html
     path('addtodo/', AddToDo), # Calls the AddToDo method in views.py
     path('deletetodo/<int:todo_id>/', DeleteToDo), # Calls the DeleteToDo method in views.py and passes the todo_id from todo.html
+
+    # Login
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+# Creating a test user account
+# Create user and save to the database
+User.objects.filter(username = 'myusername').delete()
+user = User.objects.create_user('myusername', 'myemail@gmail.com', 'mypassword')
+
+# Update fields and then save again
+user.first_name = 'John'
+user.last_name = 'Lim'
+user.save()
