@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.conf.urls import include
+from django.urls import path, include
 from django.contrib.auth.models import User
 from todo.views import ToDoView, AddToDo, DeleteToDo, ToDoHistView
+from django.shortcuts import render
 
-
+# Contributions View page
+def ContributionsView(request):
+    return render(request, 'contributions.html')
+    
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', ToDoView),
@@ -31,6 +34,7 @@ urlpatterns = [
 
     # Login
     path('accounts/', include('django.contrib.auth.urls')),
+    path('contributions/', ContributionsView)
 ]
 
 # Creating a test user account
