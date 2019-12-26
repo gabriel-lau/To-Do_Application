@@ -13,7 +13,7 @@ password: `adminpassword`
 
 #### user
 username: `myusername`  
-password: `mypassworlind`
+password: `mypassword`
 
 ## Running
 1. `git clone https://github.com/gabriel-lau/To-Do_Application`
