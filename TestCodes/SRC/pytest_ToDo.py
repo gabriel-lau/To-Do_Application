@@ -10,4 +10,4 @@ def DisplayListofItems():
 
 browser = webdriver.Chrome()
 DisplayListofItems()
-browser.close()
+# browser.close()
