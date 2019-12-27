@@ -25,8 +25,8 @@ def test_InvalidLogin(a,b):
     login(a,b)
     assert "Incorrect username and password. Please try again."
 
-# def test_CannotNavigateToDoPage():
-#     assert ""
-#
-# def test_CannotNavigateToDoHistory():
-#     assert ""
+def test_CannotNavigateToDoPage():
+    assert "Please login to see this page."
+
+def test_CannotNavigateToDoHistory():
+    assert "Please login to see this page."
