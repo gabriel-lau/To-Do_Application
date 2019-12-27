@@ -5,11 +5,20 @@ from SRC.pytest_NavandLogin import *
 def test_Login():
     assert "To-Do List"
 
-def test_InvalidLogin():
-    assert "You have entered the wrong username/password. Please try again!"
-
 def test_NavigateToDoPage():
     assert "To-Do List"
 
 def test_NavigateToDoHistory():
     assert "To-Do History"
+
+def test_Logout():
+    assert ""
+
+def test_InvalidLogin():
+    assert ""
+
+def test_CannotNavigateToDoPage():
+    assert ""
+
+def test_CannotNavigateToDoHistory():
+    assert ""
