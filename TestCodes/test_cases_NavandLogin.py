@@ -30,3 +30,4 @@ def test_CannotNavigateToDoPage():
 
 def test_CannotNavigateToDoHistory():
     assert "Please login to see this page."
+    browser.close()

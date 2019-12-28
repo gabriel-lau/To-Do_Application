@@ -18,6 +18,7 @@ def test_AddBlankItem():
     popup = browser.switch_to.alert
     message= popup.text
     assert message == "Text field must be filled"
+    popup.accept()
 
 def test_AddValidItem():
     addItems("jd's test item")
