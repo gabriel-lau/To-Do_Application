@@ -14,14 +14,14 @@
 
 <!-- ADD FUNCTION -->
 <form name="addForm" onsubmit="return validateForm()" action="/addtodo/" method="post">{% csrf_token %}
-    <input name="textInput" type="text" name="content"/>
+    <input type="text" name="content"/>
     <input type="submit" value="Add"/>
 </form>
 
 <!-- VALIDATION OF ADDITION OF TODO ITEM -->
 <script>
 function validateForm() {
-  var x = document.forms["addForm"]["textInput"].value;
+  var x = document.forms["addForm"]["content"].value;
   if (x == "") {
     alert("Text field must be filled");
     return false;
