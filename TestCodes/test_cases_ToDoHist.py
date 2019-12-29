@@ -43,3 +43,10 @@ def test_DisplayAddedItemToHistList():
     addItems("only for myusername")
     browser.get("http://127.0.0.1:8000/todohist")
     assert "only for myusername" in browser.page_source
+
+def test_DisplayDeletedInArchive():
+    browser.get("http://127.0.0.1:8000/todo")
+    addItems("This should be in archive!")
+    browser.find_element_by_xpath("/html/body/ul/li[last()]/form").click()
+    browser.get("http://127.0.0.1:8000/todohist")
+    assert "This should be in archive!" in browser.page_source
