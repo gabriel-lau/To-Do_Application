@@ -50,3 +50,12 @@ def test_DisplayDeletedInArchive():
     browser.find_element_by_xpath("/html/body/ul/li[last()]/form").click()
     browser.get("http://127.0.0.1:8000/todohist")
     assert "This should be in archive!" in browser.page_source
+
+def test_DisplayUniqueArchivedListofItems():
+    browser.get("http://127.0.0.1:8000/accounts/logout")
+    login("admin", "adminpassword")
+    browser.get("http://127.0.0.1:8000/todohist")
+    check = 0
+    if "only for myusername" in browser.page_source:
+        check = 1
+    assert check == 0
