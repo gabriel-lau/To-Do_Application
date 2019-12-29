@@ -14,6 +14,7 @@ def AddToDo(request):
     new_item = ToDoItem(content = request.POST['content'])
     new_item.save()
 
+
     histItem = ToDoHistory(content = new_item.content)
     histItem.save()
 
