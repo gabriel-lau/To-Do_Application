@@ -31,3 +31,8 @@ def test_InvalidSignupPasswordEntirelyNumeric():
 def test_InvalidSignupPasswordTooCommon():
     signup("testuser1", "password", "password")
     assert "This password is too common." in browser.page_source
+
+def test_InvalidSignupPasswordLessThanEightChars():
+    signup("testuser1", "pass", "pass")
+    assert "This password is too short. It must contain at least 8 characters." in browser.page_source
+    browser.close()
