@@ -1,13 +1,13 @@
 import pytest
 from SRC.pytest_ToDo import *
-import re
+# import re
 
 # Functions
 def addItems(string):
     input = browser.find_element_by_name("content")
     input.send_keys(string)
     input.send_keys(Keys.RETURN)
-    return True
+    # return True
 
 def login(username, password):
     browser.get("http://127.0.0.1:8000/todo")
@@ -68,3 +68,4 @@ def test_DisplayUniqueListofItems():
 def test_TimestampInTodo():
     addItems("Hey!")
     assert "a.m." or "p.m." in browser.page_source
+    browser.close()

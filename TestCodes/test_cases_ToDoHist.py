@@ -1,13 +1,12 @@
-Hist
 import pytest
 from SRC.pytest_ToDoHist import *
-import re
+# import re
 
 def addItems(string):
     input = browser.find_element_by_name("content")
     input.send_keys(string)
     input.send_keys(Keys.RETURN)
-    return True
+    # return True
 
 def login(username, password):
     browser.get("http://127.0.0.1:8000/todo")
@@ -59,3 +58,4 @@ def test_DisplayUniqueArchivedListofItems():
     if "only for myusername" in browser.page_source:
         check = 1
     assert check == 0
+    browser.close()
