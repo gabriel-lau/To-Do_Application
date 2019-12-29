@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.models import User
-from todo.views import ToDoView, AddToDo, DeleteToDo, ArchiveToDo, ToDoHistView
+from todo.views import ToDoView, AddToDo, DeleteToDo, ToDoHistView
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 
