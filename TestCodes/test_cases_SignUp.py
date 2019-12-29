@@ -15,3 +15,7 @@ def signup(username, password1, password2):
 def test_SignUpWithValidCredentials():
     signup("janinedesiree", "ephemeral12", "ephemeral12")
     assert "Please login to see this page." in browser.page_source
+
+def test_SignUpWithExistingUsername():
+    signup("janinedesiree", "ephemeral12", "ephemeral12")
+    assert "A user with that username already exists." in browser.page_source
