@@ -16,24 +16,42 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.models import User
-from todo.views import ToDoView, AddToDo, DeleteToDo, ToDoHistView
-from django.shortcuts import render
+from todo.views import ToDoView, AddToDo, DeleteToDo, ArchiveToDo, ToDoHistView
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 
 # Contributions View page
 def ContributionsView(request):
     return render(request, 'contributions.html')
+
+# Sign Up page
+def SignUpView(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = User.objects.create_user(username, 'anemail@gmail.com', raw_password)
+            user.save()
+            return redirect('todo')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
     
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todo/', ToDoView),
-    path('todohist/', ToDoHistView),
+    path('todo/', ToDoView, name='todo'),
+    path('todohist/', ToDoHistView, name='todohist'),
 
     # Retrieves the post from todo.html
     path('addtodo/', AddToDo), # Calls the AddToDo method in views.py
     path('deletetodo/<int:todo_id>/', DeleteToDo), # Calls the DeleteToDo method in views.py and passes the todo_id from todo.html
 
-    # Login
+    # Login & Signup
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup', SignUpView, name='signup'),
+
     path('contributions/', ContributionsView)
 ]
 
