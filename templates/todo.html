@@ -8,9 +8,15 @@
         <form action="/deletetodo/{{todo_item.id}}/" method="post" style="display: inline">{% csrf_token %}
             <input type="submit" value="delete"/>
         </form>
+
+        <!-- ARCHIVE FUNCTION-->
+        <form action="/archivetodo/{{todo_item.id}}/" method="post" style="display: inline">{% csrf_token %}
+          <input type="submit" value="archive"/>
+        </form>
     </li>
     {% endfor %}
 </ul>
+ 
 
 <!-- ADD FUNCTION -->
 <form name="addForm" onsubmit="return validateForm()" action="/addtodo/" method="post">{% csrf_token %}

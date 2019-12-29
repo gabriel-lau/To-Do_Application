@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.models import User
-from todo.views import ToDoView, AddToDo, DeleteToDo, ToDoHistView
+from todo.views import ToDoView, AddToDo, DeleteToDo, ArchiveToDo, ToDoHistView
 from django.shortcuts import render
 
 # Contributions View page
@@ -31,6 +31,7 @@ urlpatterns = [
     # Retrieves the post from todo.html
     path('addtodo/', AddToDo), # Calls the AddToDo method in views.py
     path('deletetodo/<int:todo_id>/', DeleteToDo), # Calls the DeleteToDo method in views.py and passes the todo_id from todo.html
+    path('archivetodo/<int:todo_id>/', ArchiveToDo),
 
     # Login
     path('accounts/', include('django.contrib.auth.urls')),

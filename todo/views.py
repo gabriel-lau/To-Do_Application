@@ -13,8 +13,7 @@ def ToDoView(request):
 def AddToDo(request):
     new_item = ToDoItem(content = request.POST['content'])
     new_item.save()
-    histItem = ToDoHistory(content = new_item.content)
-    histItem.save()
+
     return HttpResponseRedirect('/todo/')
 
 @login_required
@@ -22,6 +21,15 @@ def DeleteToDo(request, todo_id):
     delete_item = ToDoItem.objects.get(id = todo_id)
     delete_item.delete()
     
+    return HttpResponseRedirect('/todo/')
+
+@login_required
+def ArchiveToDo (request, todo_id):
+    archive_item = ToDoItem.objects.get(id = todo_id)
+    archive_item.delete()
+    
+    histItem = ToDoHistory(content = archive_item.content)
+    histItem.save()
     return HttpResponseRedirect('/todo/')
 
 @login_required
