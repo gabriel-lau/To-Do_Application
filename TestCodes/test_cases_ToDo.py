@@ -21,6 +21,7 @@ def test_AddBlankItem():
     popup.accept()
 
 def test_AddValidItem():
+    addItems("to be deleted")
     addItems("jd's test item")
     assert "jd's test item" in browser.page_source
 
