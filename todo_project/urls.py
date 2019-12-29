@@ -58,9 +58,9 @@ urlpatterns = [
 # Creating a test user account
 # Create user and save to the database
 User.objects.filter(username = 'myusername').delete()
-user = User.objects.create_user('myusername', 'myemail@gmail.com', 'mypassword')
 
 # Update fields and then save again
 user.first_name = 'John'
 user.last_name = 'Lim'
-user.save()'''
+user.save()
+'''

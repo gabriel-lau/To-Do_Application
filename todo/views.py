@@ -6,16 +6,15 @@ from django.contrib.auth.decorators import login_required
 # Methods to interact the interface with the backend
 @login_required
 def ToDoView(request):
-    todo_items = ToDoItem.objects.all()
+    todo_items = ToDoItem.objects.filter(user=request.user)
     return render(request, 'todo.html', {'all_items': todo_items})
 
 @login_required
 def AddToDo(request):
-    new_item = ToDoItem(content = request.POST['content'])
+    new_item = ToDoItem(content = request.POST['content'], user=request.user)
     new_item.save()
 
-
-    histItem = ToDoHistory(content = new_item.content)
+    histItem = ToDoHistory(content = new_item.content, user=request.user)
     histItem.save()
 
     return HttpResponseRedirect('/todo/')
@@ -29,5 +28,5 @@ def DeleteToDo(request, todo_id):
 
 @login_required
 def ToDoHistView(request):
-    hist_item = ToDoHistory.objects.all()
+    hist_item = ToDoHistory.objects.filter(user=request.user)
     return render(request, 'todohist.html', {'all_items': hist_item})
