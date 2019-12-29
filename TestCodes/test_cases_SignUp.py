@@ -16,6 +16,10 @@ def test_SignUpWithValidCredentials():
     signup("janinedesiree", "ephemeral12", "ephemeral12")
     assert "Please login to see this page." in browser.page_source
 
-def test_SignUpWithExistingUsername():
+def test_CantSignUpWithExistingUsername():
     signup("janinedesiree", "ephemeral12", "ephemeral12")
     assert "A user with that username already exists." in browser.page_source
+
+def test_InvalidSignupPasswordTooSimilarToInfo():
+    signup("testuser1", "testuser1", "testuser1")
+    assert "The password is too similar to the username." in browser.page_source
