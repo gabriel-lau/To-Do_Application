@@ -23,3 +23,7 @@ def test_CantSignUpWithExistingUsername():
 def test_InvalidSignupPasswordTooSimilarToInfo():
     signup("testuser1", "testuser1", "testuser1")
     assert "The password is too similar to the username." in browser.page_source
+
+def test_InvalidSignupPasswordEntirelyNumeric():
+    signup("testuser1", "12345678", "12345678")
+    assert "This password is entirely numeric." in browser.page_source
