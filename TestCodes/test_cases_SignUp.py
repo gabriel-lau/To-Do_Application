@@ -13,11 +13,11 @@ def signup(username, password1, password2):
     browser.find_element_by_xpath("//input[@value='Sign Up']").click()
 
 def test_SignUpWithValidCredentials():
-    signup("janinedesiree", "ephemeral12", "ephemeral12")
+    signup("jdesiree", "ephemeral12", "ephemeral12")
     assert "Please login to see this page." in browser.page_source
 
 def test_CantSignUpWithExistingUsername():
-    signup("janinedesiree", "ephemeral12", "ephemeral12")
+    signup("jdesiree", "ephemeral12", "ephemeral12")
     assert "A user with that username already exists." in browser.page_source
 
 def test_InvalidSignupPasswordTooSimilarToInfo():
